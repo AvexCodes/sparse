@@ -13,7 +13,8 @@ function getRandomInt(min, max) {
 let url = `https://cyber-request.net/api/images/cats/${getRandomInt(0, 195)}.png`;
 
 router.get('/', (req, res) => {
-    
+    const { validate } = require('../../test.js')
+if (!validate(req.query.key || "null")) {res.send({data:"Invalid key!"})}
     if (key.validateKey(key)) {
       
     res.send({data:url})

@@ -106,6 +106,8 @@ const insults = ["go fuck yourself",
 	"Every time you open your mouth, some idiot starts talking."]
 
 router.get('/', (req, res) => {
+  const { validate } = require('../../test.js')
+if (!validate(req.query.key || "null")) {res.send({data:"Invalid key!"})}
   res.send({data:insults[Math.floor(Math.random()*insults.length)]})
   sendWebHookAPI("insult")
 })

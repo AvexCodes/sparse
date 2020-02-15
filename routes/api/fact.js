@@ -373,6 +373,8 @@ const facts = ["Cyber-request.net was made by *uddy ;)",
 	"The flea can jump up to 200 times its own height. This is equal to a man jumping the Empire State Building in New York."]
 
 router.get('/', (req, res) => {
+  const { validate } = require('../../test.js')
+if (!validate(req.query.key || "null")) {res.send({data:"Invalid key!"})}
   res.send({data:facts[Math.floor(Math.random()*facts.length)]})
   sendWebHookAPI("fact")
 })

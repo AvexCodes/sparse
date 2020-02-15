@@ -12,6 +12,8 @@ function getRandomInt(min, max) {
 let url = `https://cyber-request.net/api/images/dogs/${getRandomInt(0, 3928)}.png`;
 
 router.get('/', (req, res) => {
+  const { validate } = require('../../test.js')
+if (!validate(req.query.key || "null")) {res.send({data:"Invalid key!"})}
   res.send({data:url})
   sendWebHookAPI("dog")
 })

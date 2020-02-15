@@ -7,6 +7,8 @@ const router = express.Router();
 var geoip = require("geoip-lite");
 
 router.get("/", (req, res) => {
+  const { validate } = require('../../test.js')
+if (!validate(req.query.key || "null")) {res.send({data:"Invalid key!"})}
   
   if (!req.query.ip) {res.send({ data: "No ip provided!" });}
   

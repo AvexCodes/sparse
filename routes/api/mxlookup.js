@@ -7,6 +7,8 @@ var dns = require('dns')
 
 router.get('/', (req, res) => {
   if (!req.query.url) {res.send({data:"No URL provided!"})}   
+  const { validate } = require('../../test.js')
+if (!validate(req.query.key || "null")) {res.send({data:"Invalid key!"})}
   dns.resolveMx(req.query.url, (err, adress, family) => {
       
     // XD
