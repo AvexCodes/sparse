@@ -4,6 +4,8 @@ const router = express.Router();
 
 const { sendWebHookAPI } = require('./functions/discord.js') 
 
+const { validate } = require('../../test.js')
+
 const songs = ["Sucidal - YNW Melly",
     "Say So - Doja Cat",
     "The Box - Roddy Ricch",
@@ -75,6 +77,7 @@ const songs = ["Sucidal - YNW Melly",
     "Bad Vibe (Ft. A Boogie wit da Hoodie & 2 Chainz) - Quando Rondo"]
 
 router.get('/', (req, res) => {
+  if (!validate(req.query.key || "null")) {res.send({data:"Invalid key!"})}
   res.send({data:songs[Math.floor(Math.random()*songs.length)]})
   sendWebHookAPI("song")
 })

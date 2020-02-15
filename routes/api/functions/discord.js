@@ -1,7 +1,7 @@
 let DiscordActions = {}
 
-var discordURL = "https://discordapp.com/api/webhooks/672336818493980693/uq_beFd_2PJ82cTh-iQqMKFJ1jPPxAc-UyBLbN6OGFamtyndGMikRCkgAuPQA_B483KO"
-var webhookname = "Test Webhook"
+var discordURL = "https://discordapp.com/api/webhooks/678089764108238898/45wlHCWsHMxyOkXKv8DYS_943cXPl-u97bSy6JqcOBhXRje1n3fhQJJ8ElYXZ29mLG5b"
+var webhookname = "Sparse Logger"
 
 const webhook = require("webhook-discord")
  
@@ -15,8 +15,8 @@ DiscordActions.sendWebHookError = function(err) {
   Hook.err(webhookname, `New Error Encounted!\n\n${err}`)
 }
 
-DiscordActions.sendWebHookWarn = function(ip) {
-  Hook.warn(webhookname, `${ip}, has made many requests recently!`)
+DiscordActions.sendWebHookWarn = function(text) {
+  Hook.warn(webhookname, `${text}`)
 }
 
 DiscordActions.sendWebHookSuccess = function(text) {

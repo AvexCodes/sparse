@@ -6,29 +6,18 @@ const { validateKey } = require('./functions/keys.js')
 const settings = require('./functions/assets/db.json')
 
 var mysql = require('mysql');
-var connection = mysql.createConnection({
-  host: settings.ip,
-  user: settings.username,
-  password: settings.password,
-  database: settings.db
-});
- 
-
 const router = express.Router();
 
-connection.connect();
+const { validate } = require('../../test.js')
 
 router.get('/', (req, res) => {
   
- 
-  connection.query(`SELECT * FROM api WHERE apiKey = '${req.query.key || "nothing"}'`, function (error, results, fields) {
-    if (error) sendWebHookError(error);
-    if (results.length === 0) {res.send({data:"Invalid!"})}
+  if (validate(req.query.key)) {
     res.send({data:true})
-  
-  });
- 
-  //connection.end();
+  } else {
+    res.send({data:false})
+  }
+
 })
 
 module.exports = router;

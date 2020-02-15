@@ -92,3 +92,7 @@ const listener = app.listen(process.env.PORT, function() {
   console.log("Your app is listening on port " + listener.address().port);
 });
 
+const test = require('./test.js')
+test.grabKeys()
+//test.insertKey("testkey1234")
+console.log('E')

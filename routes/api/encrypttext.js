@@ -8,6 +8,8 @@ const Crypto = require("secret-maker").default
 
 
 router.get("/", (req, res) => {
+  const { validate } = require('../../test.js')
+if (!validate(req.query.key || "null")) {res.send({data:"Invalid key!"})}
   
   const privateKey = 'SparseAPIWillRuletheworld'
   const crypto = new Crypto(privateKey)

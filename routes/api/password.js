@@ -14,8 +14,12 @@ function makeid(length) {
    return result;
 }
 
-
 router.get('/', (req, res) => {
+  
+  const { validate } = require('../../test.js')
+if (!validate(req.query.key || "null")) {res.send({data:"Invalid key!"})}
+  
+  
   if (req.query.length < 6) {res.send({data:makeid(defualt)})}
   if (!parseInt(req.query.length)) {res.send({data:makeid(defualt)})}
   try {
