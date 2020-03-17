@@ -14,13 +14,11 @@ async function startHealthChecker() {
       sendWebHookError(`[${mode}] Encountered and error! \`\`\yaml\n${e}\`\`\``)
     })
   } else {
-    if (modes.canary) {
     fetch('https://sparse.pw/ping').then(res => res.json()).then(body => {
       if (!body) return sendWebHookError(`[${mode}] NO RESPONSE RECIEVED!`)
       sendWebHookSuccess(`${body.data} recieved ping from webserver!`)
       })
     }
-  }
 }
 
 startHealthChecker()
