@@ -30,6 +30,7 @@ const geoip = require('./routes/api/geoip')
 const checkweather = require('./routes/api/checkweather')
 const md5hash = require('./routes/api/md5hash')
 const encrypttext = require('./routes/api/encrypttext')
+const pingRoute = require('./routes/api/ping')
 
 const testApi = require('./routes/api/test')
 const validateApi = require('./routes/api/validate')
@@ -51,6 +52,7 @@ app.use('/api/dog', limiter, dogApi)
 app.use('/api/checkweather', limiter, checkweather)
 app.use('/api/md5hash', limiter, md5hash)
 app.use('/api/encrypttext', limiter, encrypttext)
+app.use('/ping', limiter, pingRoute)
 
 app.use('/api/validate', limiter, validateApi)
 
@@ -96,3 +98,5 @@ const test = require('./test.js')
 test.grabKeys()
 //test.insertKey("testkey1234")
 console.log('E')
+
+const checker = require('./backend/health.js')

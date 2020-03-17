@@ -1,5 +1,6 @@
 const test = {}
-
+const modes = require('./modes.json')
+let mode = modes.canary ? "Canary" : "(CA) Main"
 const mysql = require('mysql')
 
 const { sendWebHookError } = require('./routes/api/functions/discord.js')
@@ -18,17 +19,22 @@ var keys = []
 const {  sendWebHookWarn, sendWebHookSuccess} = require('./routes/api/functions/discord.js')
 
 test.grabKeys = async function(key) {
-    sendWebHookWarn("Starting key grabber service!")
+    sendWebHookWarn("[" + mode + "] Starting key grabber service!")
     await connection.query(`SELECT * FROM api`, (err, rows) => {
       for (let i = 0; i < rows.length; i++) {
         keys.push(rows[i].apiKey)
         console.log("Key: " +  rows[i].apiKey + " has been addded to the array!")
-        if (i <= rows.length) {
-          sendWebHookSuccess("Key collection finished!")
+        if (i == rows.length) {
+          sendWebHookSuccess("[" + mode + "] Key collection finished!")
           console.log(keys)
         }
       }
     })
+
+    setTimeout(() => {
+      connection.end()
+      sendWebHookSuccess(`[${mode}] Key service finished and ended connection to db!`)
+      }, 10000)
 }
 
 test.insertKey = async function(key) {
@@ -36,9 +42,13 @@ test.insertKey = async function(key) {
       if (err) {
         sendWebHookError(err)
       }
-      sendWebHookSuccess(`Inserted key: ${key} into the db!`)
+      sendWebHookSuccess(`[${mode}] Inserted key: ${key} into the db!`)
       keys.push(key)
     })
+    setTimeout(() => {
+      connection.end()
+      sendWebHookSuccess(`[${mode}] Key insertion service finished and ended connection to db!`)
+      }, 5000)
 }
 
 test.validate = function(checkKey) {

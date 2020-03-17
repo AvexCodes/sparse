@@ -1,7 +1,7 @@
 let DiscordActions = {}
-
-var discordURL = "https://discordapp.com/api/webhooks/678089764108238898/45wlHCWsHMxyOkXKv8DYS_943cXPl-u97bSy6JqcOBhXRje1n3fhQJJ8ElYXZ29mLG5b"
-var webhookname = "Sparse Logger"
+const mode = require("../../../modes.json")
+var discordURL = mode.canary ? mode.url_canary : "https://discordapp.com/api/webhooks/678089764108238898/45wlHCWsHMxyOkXKv8DYS_943cXPl-u97bSy6JqcOBhXRje1n3fhQJJ8ElYXZ29mLG5b"
+var webhookname = "Sparse"
 
 const webhook = require("webhook-discord")
  
