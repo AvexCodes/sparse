@@ -1,35 +1,287 @@
-<!-- This is a static file -->
-<!-- served from your routes in server.js -->
-
-<!-- You might want to try something fancier: -->
-<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
-<!-- pug: https://pugjs.org/ -->
-<!-- haml: http://haml.info/ -->
-<!-- hbs(handlebars): http://handlebarsjs.com/ -->
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><%= say %></title>
-    <meta name="description" content="A cool thing made with Glitch">
-    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sparse</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/cdn-cgi/apps/head/6rgQCsqE4uRPF6lb9OqtvGfAL24.js"></script><link rel="stylesheet" type="text/css" href="/inc/main.css" />
+	<meta name="google-site-verification" content="61i9LNaawZdXCufxnU9KtRpoSYNQX8pSsTWJdaFssEo" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+	<meta name="description" content="Sparse - Free high quality API's written in js, with json and text response options!">
+	<meta name="keywords" content="Sparse api, sparse, api, sparse.pw, Free api, api, rest api, java api, js api, vb.net, c#, coding, free api service, paid api service, fetch api, Geoip location, random fact generator, NSLookup, NMAP Scanner">
+	<meta name="robots" content="index, follow">
+	<meta name="googlebot" content="index, follow">
+	<meta name="language" content="English">
+	<meta name="revisit-after" content="2 days">
+		
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
 
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css">
-    
-    <!-- import the webpage's client-side javascript file -->
-    <script src="/client.js" defer></script>
+    <meta property="og:title" content="Sparse" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sparse.pw" />
+    <meta
+      property="og:description"
+      content="Sparse - Free high quality API's written in js, with json and text response options!"
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.com/112c4435-a9b9-4e42-98b6-3f2519258984%2FLogo.svg?v=1580549325182"
+    />
+
   </head>
   <body>
-    <header>
-      <h1>
-        <%= say %>
-      </h1>
-    </header>
-    <br>
+    <div id="pattern"></div>
+    <!-- As a link -->
 
+    <!-- As a heading -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+      <a class="navbar-brand" style="" href="#">
+        <img
+          src="https://cdn.glitch.com/112c4435-a9b9-4e42-98b6-3f2519258984%2FLogo.svg?v=1580549325182"
+          width="30"
+          height="30"
+          class="d-inline-block align-top"
+          alt=""
+        />
+        Sparse</a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href=""
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="key.html">Key</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://discord.gg/3PyJaZM">Discord</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!--Start of Body below -->
+    <div class="alert alert-warning alert-dismissible fade show text-black" role="alert">
+      Premium keys have access to out other locations. (Australia!)
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div
+      class="alert alert-success alert-dismissible fade show"
+      id="aa"
+      style="display:none;"
+      role="alert"
+    >
+      API url copied!
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div style="margin-top:10px"></div>
+    <div class="container">
+      <!-- Content here -->
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Options
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Purchase Key</a>
+          <a class="dropdown-item" href="#">Login</a>
+          <a class="dropdown-item" href="#" onclick="updateURLs()">Text/Json Response</a>
+        </div>
+        <br>
+        <div class="spacker-spacer" style="height:10px"></div>
+        <table class="table table-striped w-auto table-responsive{-sm|-md|-lg|-xl}">
+  <thead class="bg-warning">
+    <tr class="">
+      <th scope="col" >API</th>
+      <th scope="col" class="w-75">Link</th>
+    </tr>
+  </thead>
+  <tbody class="w-auto">
+    <tr class="w-auto">
+      <td class="w-auto"><b>Host2IP</b><br>Grabs the IP address of the provided url</td>
+      <td><input type="text" class="form-control" id="api0" onclick="copy('api0')" value="https://sparse.pw/api/host2ip?key=key_here&url=" placeholder="https://sparse.pw/api/host2ip?key=key_here&url="></td>
+    </tr>
+    <tr class="w-auto">
+      <td class="td-sm"><b>NSLookup</b><br>Returns the name servers, of the provided url</td>
+      <td><input type="text" class="form-control" id="api1" onclick="copy('api1')" value="https://sparse.pw/api/nslookup?key=key_here&url=" placeholder="https://sparse.pw/api/nslookup?key=key_here&url="></td>
+    </tr>
+    <tr class="w-auto">
+      <td class="td-sm"><b>Password</b><br>Generates a password the with set amount of chars given</td>
+      <td><input type="text" class="form-control" id="api2" onclick="copy('api2')" value="https://sparse.pw/api/password?key=key_here&length=6" placeholder="https://sparse.pw/api/password?key=key_here&length=6"></td>
+    </tr>
+    <tr class="w-auto">
+      <td class="td-sm"><b>Cat</b><br>Returns a random image of cat</td>
+      <td><input type="text" class="form-control" id="api3" onclick="copy('api3')" value="https://sparse.pw/api/cat?key=key_here" placeholder="https://sparse.pw/api/cat?key=key_here"></td>
+    </tr>
+    <tr class="w-auto">
+      <td class="td-sm"><b>Dog</b><br>Returns a random image of dog</td>
+      <td><input type="text" class="form-control" id="api4" onclick="copy('api4')" value="https://sparse.pw/api/dog?key=key_here" placeholder="https://sparse.pw/api/dog?key=key_here"></td>
+    </tr>
+     <tr class="w-auto">
+      <td class="td-sm"><b>Song</b><br>Returns a random song</td>
+      <td><input type="text" class="form-control" id="api5" onclick="copy('api5')" value="https://sparse.pw/api/song?key=key_here" placeholder="https://sparse.pw/api/song?key=key_here"></td>
+    </tr>
+    <tr class="w-auto">
+      <td class="td-sm"><b>Weather</b><br>Returns the weather on the specified location</td>
+      <td><input type="text" class="form-control" id="api6" onclick="copy('api6')" value="https://sparse.pw/api/checkweather?key=key_here&loc=" placeholder="https://sparse.pw/api/checkweather?key=key_here&loc="></td>
+    </tr>
+    <tr class="w-auto">
+      <td class="td-sm"><b>Geo IP</b><br>Returns the geographical information about an IP adress</td>
+      <td><input type="text" class="form-control" id="api7" onclick="copy('api7')" value="https://sparse.pw/api/geoip?key=key_here&ip=" placeholder="https://sparse.pw/api/geoip?key=key_here&ip="></td>
+    </tr>
+    <tr class="w-auto">
+      <td class="td-sm"><b>MD5 Hasher</b><br>Converts the given text to md5</td>
+      <td><input type="text" class="form-control" id="api8" onclick="copy('api6')" value="https://sparse.pw/api/md5hash?key=key_here&text=" placeholder="https://sparse.pw/api/md5hash?key=key_here&text="></td>
+    </tr>
+    <tr class="w-auto">
+      <td class="td-sm"><b>MXLookup</b><br>Returns the MX record of the given URL</td>
+      <td><input type="text" class="form-control" id="api9" onclick="copy('api9')" value="https://sparse.pw/api/mxlookup?key=key_here&url=" placeholder="https://sparse.pw/api/mxlookup?key=key_here&url="></td>
+    </tr>
+    <tr class="w-auto">
+      <td class="td-sm"><b>Insult</b><br>Returns a random insult</td>
+      <td><input type="text" class="form-control" id="api10" onclick="copy('api11')" value="https://sparse.pw/api/insult?key=key_here" placeholder="https://sparse.pw/api/insult?key=key_here"></td>
+    </tr>
+    <tr class="w-auto">
+      <td class="td-sm"><b>Fact</b><br>Returns a random fact</td>
+      <td><input type="text" class="form-control" id="api11" onclick="copy('api11')" value="https://sparse.pw/api/fact?key=key_here" placeholder="https://sparse.pw/api/fact?key=key_here"></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    </div>
+
+    <!-- bootstrap CDN JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+<script>
+//searches for and detects the input element from the 'myButton' id
+let text = false;
+
+function updateURLs() {
+  let btn = document.getElementsByClassName('btn-response-js')[0]
+  if (text) {
+    for (let i = 0; i <= 5; i++) {
+      var apiURL = document.getElementById(`api${i}`);
+      apiURL.value = apiURL.value.replace("&resp=text", "");
+    }
+    //btn.innerHTML = "Text Response";
+    text = false;
+  } else {
+    for (let i = 0; i <= 5; i++) {
+      var apiURL = document.getElementById(`api${i}`);
+      apiURL.value = apiURL.value + "&resp=text";
+    }
+
+    //btn.innerHTML = "JSON Response";
+
+    text = true;
+  }
+  
+}
+
+function copy(id) {
+  var copyText = document.getElementById(id);
+
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); 
+
+  document.execCommand("copy");
+
+  document.getElementById('aa').style.display = "inherit"
+  
+
+  document.getElementById('aa').classList.remove('fadeHide');
+  
+  setTimeout(async function(){ 
+    document.getElementById('aa').classList.add('fadeHide')
+    setTimeout(function() {document.getElementById('aa').style.display = "none"}, 500) 
+  }, 1300);
+  
+}
+</script>
+<style type="text/css">
+.fadeHide {
+   opacity: 1;
+   animation: fade 500ms linear forwards;
+}
+
+@keyframes fade {
+  0% { opacity: 1}
+  50% { opacity: 1 }
+  100% { opacity: 0; display:none; }
+}
+</style>
+    <script src="./inc/script.js"></script>
   </body>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-157550417-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-157550417-1');
+</script>
+
 </html>
+<!--
+ [Talk here gay..]
+ok pussy wanker
+you got spotif
+
+Its giving an error up here _>
+where?
+-->
+
